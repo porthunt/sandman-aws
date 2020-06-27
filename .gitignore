@@ -4,6 +4,6 @@ venv/
 terraform.tfstate
 terraform.tfstate.backup
 *.zip
-__pycache__/
+**/__pycache__/
 *.pyc
 tflint
