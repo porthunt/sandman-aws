@@ -4,3 +4,5 @@ venv/
 terraform.tfstate
 terraform.tfstate.backup
 *.zip
+__pycache__/
+*.pyc
