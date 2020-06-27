@@ -4,6 +4,11 @@ python:
 - 3.7
 - 3.8
 - nightly
+env:
+  - AWS_DEFAULT_REGION=eu-west-1
+  - AWS_ACCESS_KEY_ID=foobar
+  - AWS_SECRET_ACCESS_KEY=foobar
+  - AWS_SESSION_TOKEN=foobar
 install: 
   - pip install -r requirements-dev.txt
   - curl -L "$(curl -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" -o tflint.zip && unzip tflint.zip && rm tflint.zip

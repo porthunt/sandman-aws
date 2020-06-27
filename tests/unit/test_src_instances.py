@@ -6,24 +6,12 @@ from src import instances
 
 @pytest.fixture
 def client():
-    return boto3.client(
-        "ec2",
-        aws_access_key_id="foobar",
-        aws_secret_access_key="foobar",
-        aws_session_token="foobar",
-        region_name="eu-west-1",
-    )
+    return boto3.client("ec2")
 
 
 @pytest.fixture
 def resource():
-    return boto3.resource(
-        "ec2",
-        aws_access_key_id="foobar",
-        aws_secret_access_key="foobar",
-        aws_session_token="foobar",
-        region_name="eu-west-1",
-    )
+    return boto3.resource("ec2")
 
 
 def test_is_ignorable_true():
