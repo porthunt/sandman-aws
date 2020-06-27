@@ -16,6 +16,9 @@ To deploy Sandman on your account, you simply need to run `./deploy.sh`. This sc
 * The role that uses the previous policy.
 * The lambda functions to start and stop the instances.
 * Cloudwatch events that triggers the lambda functions.
+  
+## Removing Sandman
+In case you don't want to have Sandman anymore, just run `./destroy.sh`.
 
 ## License
 Sandman is completely unlicensed. Feel free to just modify it as you want.
