@@ -1,4 +1,6 @@
 # Sandman
+[![Build Status](https://travis-ci.org/porthunt/sandman-aws.svg?branch=master)](https://travis-ci.org/porthunt/sandman-aws)
+
 Sandman was designed to reduce the costs of your AWS EC2 instances. Using Sandman, you can configure which and when to stop them. You simply need to deploy Sandman's lambda functions and that's it, it will take care of the rest.
 
 ## Customizing
