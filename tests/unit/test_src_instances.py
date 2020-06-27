@@ -37,6 +37,20 @@ def test_is_ignorable_tag_wrong_key():
     assert instances.__is_ignorable(tags) is False
 
 
+def test_is_ignorable_key_uppercase():
+    tags = [
+        {"Key": instances.SANDMAN_TAG.upper(), "Value": instances.IGNORE_TAG}
+    ]
+    assert instances.__is_ignorable(tags) is True
+
+
+def test_is_ignorable_value_uppercase():
+    tags = [
+        {"Key": instances.SANDMAN_TAG, "Value": instances.IGNORE_TAG.upper()}
+    ]
+    assert instances.__is_ignorable(tags) is True
+
+
 @mock_ec2
 def test_retrieve_instances_all(client, resource):
     num_instances = 3

@@ -17,7 +17,10 @@ def __is_ignorable(tags: list) -> bool:
     """
     if tags:
         for tag in tags:
-            if tag["Key"] == SANDMAN_TAG and tag["Value"] == IGNORE_TAG:
+            if (
+                tag["Key"].lower() == SANDMAN_TAG
+                and tag["Value"].lower() == IGNORE_TAG
+            ):
                 return True
     return False
 
