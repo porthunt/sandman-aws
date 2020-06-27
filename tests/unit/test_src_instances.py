@@ -6,12 +6,12 @@ from src import instances
 
 @pytest.fixture
 def client():
-    return boto3.client("ec2")
+    return boto3.client("ec2", region_name="eu-west-1")
 
 
 @pytest.fixture
 def resource():
-    return boto3.resource("ec2")
+    return boto3.resource("ec2", region_name="eu-west-1")
 
 
 def test_is_ignorable_true():
