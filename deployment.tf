@@ -37,7 +37,8 @@ resource "aws_iam_role_policy" "sandman_policy" {
                     "sagemaker:ListNotebookInstances",
                     "sagemaker:StopNotebookInstance",
                     "sagemaker:StartNotebookInstance",
-                    "sagemaker:ListTags"
+                    "sagemaker:ListTags",
+                    "ec2:DescribeSubnets"
                 ],
                 "Resource": "*"
             },
