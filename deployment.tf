@@ -4,7 +4,7 @@ provider "aws" {
 
 resource "aws_iam_role" "sandman_role" {
     name                = "SandmanRole"
-    description         = "Role responsible for starting/stopping EC2 instances"
+    description         = "Role responsible for starting/stopping Sagemaker instances"
     assume_role_policy  = <<-EOF
     {
       "Version": "2012-10-17",
@@ -34,9 +34,10 @@ resource "aws_iam_role_policy" "sandman_policy" {
                 "Sid": "",
                 "Effect": "Allow",
                 "Action": [
-                    "ec2:DescribeInstances",
-                    "ec2:StartInstances",
-                    "ec2:StopInstances"
+                    "sagemaker:ListNotebookInstances",
+                    "sagemaker:StopNotebookInstance",
+                    "sagemaker:StartNotebookInstance",
+                    "sagemaker:ListTags"
                 ],
                 "Resource": "*"
             },
@@ -59,7 +60,7 @@ resource "aws_iam_role_policy" "sandman_policy" {
 
 resource "aws_cloudwatch_event_rule" "sandman_stop_rule" {
     name                = "sandman_stop_rule"
-    description         = "Stops all instances"
+    description         = "Stops notebook instances"
     schedule_expression = var.stop_schedule
 }
 
@@ -89,7 +90,7 @@ resource "aws_lambda_function" "sandman_stop_instances" {
 
 resource "aws_cloudwatch_event_rule" "sandman_start_rule" {
     name                = "sandman_start_rule"
-    description         = "Starts all instances"
+    description         = "Starts notebook instances"
     schedule_expression = var.start_schedule
 }
 
@@ -112,5 +113,5 @@ resource "aws_lambda_function" "sandman_start_instances" {
   role              = aws_iam_role.sandman_role.arn
   handler           = "start.lambda_handler"
   source_code_hash  = filebase64sha256("sandman_start.zip")
-  runtime           = "python3.8"
+  runtime           = var.runtime
 }

@@ -11,5 +11,5 @@ variable "start_schedule" {
 }
 
 variable "stop_schedule" {
-    default = "cron(0 22 * * ? *)"
+    default = "cron(0 21 * * ? *)"
 }
