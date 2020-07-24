@@ -18,7 +18,13 @@ Sometimes you have instances that need to run 24/7. Sandman can **ignore** insta
 
 ## How to deploy
 To deploy Sandman on your account, you need to have awscli configured on your machine and then run `./deploy.sh`. This script will create:
-* The policy that allows the lambda function to `StartNotebookInstance`, `StopNotebookInstance`, `ListNotebookInstances` and `ListTags`.
+* The policy that allows the lambda function to:
+  * `sagemaker:StartNotebookInstance`
+  * `sagemaker:StopNotebookInstance`
+  * `sagemaker:ListNotebookInstances`
+  * `sagemaker:ListTags`
+  * `ec2:DescribeSubnets`
+  * `ec2:DescribeVpcs`
 * The role that uses the previous policy.
 * The lambda functions to start and stop the notebook instances.
 * Cloudwatch events that triggers the lambda functions.
