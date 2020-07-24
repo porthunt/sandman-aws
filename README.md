@@ -25,6 +25,7 @@ To deploy Sandman on your account, you need to have awscli configured on your ma
   * `sagemaker:ListTags`
   * `ec2:DescribeSubnets`
   * `ec2:DescribeVpcs`
+  * `ec2:DescribeNetworkInterfaces`
 * The role that uses the previous policy.
 * The lambda functions to start and stop the notebook instances.
 * Cloudwatch events that triggers the lambda functions.
